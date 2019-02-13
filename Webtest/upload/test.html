@@ -1,0 +1,204 @@
+<!doctype html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects - Space Science Website Template</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <script src="js/mobile.js" type="text/javascript"></script>
+    <style type="text/css">
+    /*圖片等比例縮放
+    img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;   
+    }*/
+
+
+    /*轉場的時間*/
+    .post img {
+    transition: all 0.5s ease 0s;
+    }
+
+    /*判斷滑鼠的動作放大圖片還有增加透明度*/
+    .post img:hover {
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: .5;
+    }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <div>
+                <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+                <ul id="navigation">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li class="menu selected">
+                        <a href="projects.html">Projects</a>
+                        <ul class="primary">
+                            <li>
+                                <a href="proj1.html">proj 1</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 2</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 3</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 4</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 5</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 6</a>
+                            </li>
+                            <li>
+                                <a href="proj1.html">proj 7</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="blog.html">Blog</a>
+                        <ul class="secondary">
+                            <li>
+                                <a href="singlepost.html">Single post</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            <div class="header" align="center" id="canvas">
+                <h1>3D 範 例 集</h1>
+                    <a id="li1" href="www.songshizhao.com">ssz666-Demo</a>
+                    <iframe id="li2" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/testTooltip.html" width="250"></iframe>
+                    <a id="li3" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li4" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_geometry_hierarchy.html" width="250"></iframe>
+                    <a id="li5" href="www.songshizhao.com">ssz666</a>
+                    <a id="li6" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li7" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_loader_gltf_extensions.html" width="250"></iframe>
+                    <a id="li8" href="www.songshizhao.com">ssz666</a>
+                    <a id="li9" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li10" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_loader_gltf.html" width="250"></iframe>
+                    <a id="li11" href="www.songshizhao.com">ssz666</a>
+                    <a id="li12" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li13" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_geometry_hierarchy.html" width="250"></iframe>
+                    <a id="li14" href="www.songshizhao.com">ssz666</a>
+                    <a id="li15" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li16" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_camera_cinematic.html" width="250"></iframe>
+                    <a id="li17" href="www.songshizhao.com">ssz666</a>
+                    <a id="li18" href="www.songshizhao.com">ssz666</a>
+                    <iframe id="li19" align="middle" frameborder="0" height="155" scrolling="no" src="https://jiangyugun.github.io/Show/examples/webgl_animation_keyframes.html" width="250"></iframe>
+            </div>
+    </div>
+    <script src="js/three.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/CSS3DRenderer.js"></script>
+
+    <script type="text/javascript">
+
+        var elements = new Array();
+
+        for (var i = 1; i < 20; i++) {
+            var el_id = "li" + i;
+            var obj = document.getElementById(el_id);
+            elements.push(obj);
+        
+        }
+        var camera, renderer, scene;
+        var controls;
+        var objects = new Array();
+        var thetas = new Array();
+        var phis = new Array();
+        var r = 450;
+        int();
+        animate();
+
+        function int() {
+            camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 2000000); //調整視野縮放
+            camera.position.set(350, 0, 720); //調整攝影機照射3D角度
+            scene = new THREE.Scene();
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var phi = Math.acos(-1 + (2 * i) / elements.length);
+                phis.push(phi);
+                var theta = Math.sqrt(elements.length * Math.PI) * phi;
+                thetas.push(theta);
+                var object = new THREE.CSS3DObject(element);
+                object.position.x = r * Math.cos(theta) * Math.sin(phi);
+                object.position.z = r * Math.sin(theta) * Math.sin(phi);
+                object.position.y = r * Math.cos(phi);
+                scene.add(object);
+                objects.push(object);
+            }
+            renderer = new THREE.CSS3DRenderer;
+            //设置大小
+            renderer.setSize(700, 700);
+            render();
+            document.getElementById('canvas').appendChild(renderer.domElement);
+
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.target.set(355, 0, 0);      //調整攝影機位置
+            controls.update();
+
+            window.addEventListener('resize', onWindowResize, false);
+            controls.addEventListener('change', render);
+        }
+
+        function render() {
+
+            renderer.render(scene, camera);
+
+        }
+
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+
+            var phi = Math.acos(-1 + (2 * i) / elements.length);
+            var theta = Math.sqrt(elements.length * Math.PI) * phi;
+            for (var i = 0; i < objects.length; i++) {
+                thetas[i] += 0.001;//phis[i] -= 0.001;
+                objects[i].position.x = r * Math.cos(thetas[i]) * Math.sin(phis[i]);
+                objects[i].position.z = r * Math.sin(thetas[i]) * Math.sin(phis[i]);
+                objects[i].position.y = r * Math.cos(phis[i]);
+                //启用下面的代码锁定标签朝向，但无法缩放拖拽
+                //var vector = camera.position;
+                //vector.copy(objects[i].position - vector).multiplyScalar(1);
+                //objects[i].lookAt(vector);
+
+            }
+
+            render();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(400, 400);
+            render();
+        }
+
+    </script>
+</body>
+</html>
